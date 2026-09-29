@@ -1,0 +1,67 @@
+name: Spec drift
+
+# Furgonetka changes its API every few days, and an unknown API version is not an error: it is
+# served as another shape (see docs/FURGONETKA-NOTES.md). Once a week this compares the operation
+# registry (`Internal\Http\Endpoint`) with the specification Furgonetka publishes, so a removed
+# operation, a deprecation, a new version or a changed body or security requirement turns up as a
+# red run with the operation named, instead of in a customer's logs.
+
+on:
+  schedule:
+    # Monday 06:17 UTC, off the hour to avoid the top-of-hour runner rush.
+    - cron: "17 6 * * 1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: spec-drift
+  cancel-in-progress: false
+
+jobs:
+  drift:
+    name: Registry against the published specification
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          extensions: curl, json, libxml, mbstring, simplexml, zlib
+          coverage: none
+
+      - name: Get Composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache Composer downloads
+        uses: actions/cache@v6
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.json') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      # The specification is a YAML file whose name carries a hash that changes; the address is
+      # the spec-url attribute of the documentation page. yq is preinstalled on the runners.
+      - name: Fetch the published specification
+        run: |
+          page=$(curl -fsSL https://furgonetka.pl/api/rest)
+          path=$(printf '%s' "${page}" | grep -oP "spec-url='\K[^']+" | head -n1)
+          if [ -z "${path}" ]; then
+            echo "::error title=Specification not found::no spec-url attribute on https://furgonetka.pl/api/rest"
+            exit 1
+          fi
+          echo "Specification: https://furgonetka.pl${path}"
+          curl -fsSL "https://furgonetka.pl${path}" -o openapi.yaml
+          yq -o=json openapi.yaml > openapi.json
+
+      # Exit code 1 on drift, with one annotation per finding.
+      - name: Compare the registry with the specification
+        run: php tools/spec-drift.php openapi.json --github

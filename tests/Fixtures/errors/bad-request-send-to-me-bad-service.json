@@ -1,0 +1,1 @@
+{"errors":[{"path":"/receiver/point","message":"Select correct point","code":"invalidPointName","details":""},{"path":"/service","message":"The specified value is out of range.","code":"notInArray","details":""}]}

@@ -1,0 +1,101 @@
+{
+  "regulations": [
+    {
+      "service": "fedex",
+      "name": "FedEx Krajowy",
+      "content": "<a target=\"_blank\" rel=\"noopener\" href=\"https://c.furgonetka.pl/public.furgonetka.pl/media_help/regulamin-fedex-krajowy-27-07-2026.pdf\">Warunki przewozu FedEx dla Usług Krajowych</a>, <a target=\"_blank\" rel=\"noopener\" href=\"https://c.furgonetka.pl/public.furgonetka.pl/media_help/FedEx_Przewodnik_po_uslugach_krajowych-27-07-2026.pdf\">FedEx Przewodnik po usługach krajowych</a>.",
+      "version": 1785103203,
+      "datetime": "2026-07-27T00:00:03+02:00",
+      "documents": [
+        {
+          "name": "Warunki przewozu FedEx dla Usług Krajowych",
+          "url": "https://c.furgonetka.pl/public.furgonetka.pl/media_help/regulamin-fedex-krajowy-27-07-2026.pdf",
+          "type": "regulations",
+          "key": "fedex_carriage_conditions_domestic_parcels",
+          "additional_content": ""
+        },
+        {
+          "name": "FedEx Przewodnik po usługach krajowych",
+          "url": "https://c.furgonetka.pl/public.furgonetka.pl/media_help/FedEx_Przewodnik_po_uslugach_krajowych-27-07-2026.pdf",
+          "type": "regulations",
+          "key": "",
+          "additional_content": ""
+        }
+      ],
+      "accepted": false,
+      "withdrawable": false,
+      "datetime_accepted": null,
+      "marketing": false,
+      "info": "This document specifies the conditions under which the transport service will be provided, including technical conditions and dimensions of shipments, a list of prohibited and dangerous goods excluded from transport, as well as the procedures and deadlines for filing complaints about the Transport Service."
+    },
+    {
+      "service": "furgonetka_app_push_marketing",
+      "name": "Consent to Receive Promotional Notifications",
+      "content": "I hereby give my consent to receive push notifications containing discounts, promotional content, news and information about new features available in the Furgonetka application.",
+      "version": 1789077600,
+      "datetime": "2026-09-11T00:00:00+02:00",
+      "documents": [],
+      "accepted": false,
+      "withdrawable": true,
+      "datetime_accepted": null,
+      "marketing": true,
+      "info": null
+    },
+    {
+      "service": "dpd",
+      "name": "DPD Krajowy",
+      "content": "<a target=\"_blank\" rel=\"noopener\" href=\"https://c.furgonetka.pl/public.furgonetka.pl/media_help/regulamin_swiadczenia_uslug_w_obrocie_krajowym_dpd_27-07-2026.pdf\">Regulamin Świadczenia Usług w Obrocie Krajowym DPD Polska sp. z o.o.</a>, <a target=\"_blank\" rel=\"noopener\" href=\"https://c.furgonetka.pl/public.furgonetka.pl/media_help/szczegolowe_warunki_swiadczenia_uslug_dpd_27-07-2026.pdf\">Szczegółowe Warunki Świadczenia Usług DPD Polska sp. z o.o.</a>",
+      "version": 1785103203,
+      "datetime": "2026-07-27T00:00:03+02:00",
+      "documents": [
+        {
+          "name": "Regulamin Świadczenia Usług w Obrocie Krajowym DPD Polska sp. z o.o.",
+          "url": "https://c.furgonetka.pl/public.furgonetka.pl/media_help/regulamin_swiadczenia_uslug_w_obrocie_krajowym_dpd_27-07-2026.pdf",
+          "type": "regulations",
+          "key": "dpd_regulations_domestic_parcels",
+          "additional_content": ""
+        },
+        {
+          "name": "Szczegółowe Warunki Świadczenia Usług DPD Polska sp. z o.o.",
+          "url": "https://c.furgonetka.pl/public.furgonetka.pl/media_help/szczegolowe_warunki_swiadczenia_uslug_dpd_27-07-2026.pdf",
+          "type": "regulations",
+          "key": "",
+          "additional_content": ""
+        }
+      ],
+      "accepted": true,
+      "withdrawable": false,
+      "datetime_accepted": "2026-09-29T07:58:23+02:00",
+      "marketing": false,
+      "info": "This document specifies the conditions under which the transport service will be provided, including technical conditions and dimensions of shipments, a list of prohibited and dangerous goods excluded from transport, as well as the procedures and deadlines for filing complaints about the Transport Service."
+    },
+    {
+      "service": "furgonetka_regulation_privacy",
+      "name": "Furgonetka.pl",
+      "content": "Regulamin serwisu Furgonetka.pl (aktualna wersja <a href=\"https://sandbox.furgonetka.pl/regulamin\" target=\"_blank\" rel=\"noopener\">Regulaminu</a> oraz <a href=\"https://sandbox.furgonetka.pl/zmiany_regulaminu\" target=\"_blank\" rel=\"noopener\">historia zmian</a>).",
+      "version": 1789077600,
+      "datetime": "2026-09-11T00:00:00+02:00",
+      "documents": [
+        {
+          "name": "Regulations",
+          "url": "https://sandbox.furgonetka.pl/regulamin",
+          "type": "regulations",
+          "key": "",
+          "additional_content": ""
+        },
+        {
+          "name": "Privacy policy",
+          "url": "https://sandbox.furgonetka.pl/prywatnosc",
+          "type": "regulations",
+          "key": "",
+          "additional_content": ""
+        }
+      ],
+      "accepted": true,
+      "withdrawable": false,
+      "datetime_accepted": "2026-08-28T16:49:55+02:00",
+      "marketing": false,
+      "info": null
+    }
+  ]
+}

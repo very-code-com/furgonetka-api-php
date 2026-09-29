@@ -1,0 +1,1 @@
+{"errors":[{"path":"/packages/0/id","message":"The package has already been ordered.","details":"","code":"sent"},{"path":"/uuid","message":"Operation already exists.","details":"","code":"commandExists"}]}

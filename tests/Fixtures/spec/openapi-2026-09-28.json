@@ -1,0 +1,5030 @@
+{
+ "openapi": "3.0.0",
+ "x-snapshot": {
+  "source": "https://furgonetka.pl/api/rest (OpenAPI 3.0, the spec-url of that page)",
+  "date": "2026-09-28",
+  "changelog": "v1.0.118",
+  "note": "Reduced to what tools/spec-drift.php reads: per operation the deprecated flag, security, and the media types of the request body and of every response. Schemas, descriptions and examples are dropped. Not edited otherwise."
+ },
+ "paths": {
+  "/account": {
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/notifications": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/sessions": {
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/badRequestDefault"
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/address-book": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/AddressBookItemsDeleteParams"
+    },
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/address-book/{id}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {},
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/address-book/validate": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/AddressBookParams"
+    },
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/settings/advanced": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {},
+       "application/vnd.furgonetka.v2+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/balance": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/companies": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {},
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/email-check-blacklist/{email}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/logout": {
+   "post": {
+    "security": [
+     {
+      "application-token": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/members/permissions": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/members/invite": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/members": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "403": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/settings/notification/general": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/settings/notification": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/settings/notification/shipping": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/settings/notification/webhook": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/settings/notification/webhook/logs": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/settings/notification/webhook/resend-command/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/settings/notification/webhook/check-command/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/package-templates": {
+   "get": {
+    "deprecated": true,
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {},
+       "application/vnd.furgonetka.v2+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "post": {
+    "deprecated": true,
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/AddPackageTemplateParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v2+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/planned-pricelist-changes": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {},
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/settings/printing": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/PrintingConfigurationParams"
+    },
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/register/{partner}/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-application": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-application": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/register-partner-subaccount": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-application": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/register-sso/salesbar/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-application": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-application": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/register-sso/wza/{uuid}": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-application": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service-command/ambro-express/{uuid}": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service-command/dhl/{uuid}": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service-command/dpd/{uuid}": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service-command/fedex/{uuid}": {
+   "put": {
+    "deprecated": true,
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service-command/gls/{uuid}": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service-command/inpost/{uuid}": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service-command/orlen/{uuid}": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service-command/poczta/{uuid}": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service-command/spx/{uuid}": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service-command/swiatprzesylek/{uuid}": {
+   "put": {
+    "deprecated": true,
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service-command/ups/{uuid}": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service-command/wza/{uuid}": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service-command/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/services-agreements/inpost/{agreement_id}/dispatch-points": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/services-agreements/inpost/dispatch-points-sync/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/services-agreements/poczta/post-offices-command/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/services-agreements/poczta/refresh-services-command/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/services-agreements/poczta/{agreementId}/services": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service-delete/{service_id}": {
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service/ambro-express/{service_id}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service/dhl/{service_id}": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service/dpd/{service_id}": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service/fedex/{service_id}": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service/gls/{service_id}": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service/inpost/{service_id}": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service/orlen/{service_id}": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service/poczta/{service_id}": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service/spx/{service_id}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service/swiatprzesylek/{service_id}": {
+   "get": {
+    "deprecated": true,
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service/ups/{service_id}": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/service/wza/{service_id}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/services-agreements": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {},
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/services": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/switch-company": {
+   "post": {
+    "security": [
+     {
+      "application-token": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/SwitchCompanyParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/auctions/{packages_id}/discussion/{room_id}/entry": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/auctions/{packages_id}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/auctions/{packages_id}/discussions/{room_id}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/auctions/extend/{packages_id}": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/auctions/offers/{offer_id}": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/auctions/{packages_id}/rate": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/auctions/user-opinions/{company_id}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/box/point/packages/reasons/add": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/box/point/packages/access-code/{accessCode}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/box/point/packages/{packageNo}/archive": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/box/point/packages/{package_no}/client-reject/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/box/point/packages/{package_no}/collection/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/PointCollectionCommandPutParams"
+    },
+    "responses": {
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/box/point/packages/dispatch/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/PointDispatchCommandPutParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/box/point/inventory/list": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {},
+      "application/vnd.furgonetka.v2+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {},
+       "application/vnd.furgonetka.v2+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/box/point/packages/{package_no}/resend-dispatch-access-code/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/PointResendDispatchAccessCodeCommandPutParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/box/point/packages/{package_no}/return/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/box/point/packages/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/PrepareStoragePackageCommandPutParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/box/print-documents/{uuid}": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/box/point/training-mode/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/order-commands/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/OrderCommandPutParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "409": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/add-package-to-tracking-command/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/cancel-command/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/CancelCommandPutParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/create-package-command/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/PackageParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/csv-command/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/CsvCommandPutParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/documents-command/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/DocumentsCommandPutParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/pickup-commands/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "409": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/readdressing/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/revalidate-command/{uuid}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/RevalidateCommandPutParams"
+    },
+    "responses": {
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/generic-command/{uuid}": {
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/configuration/allowed-countries": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/configuration/dictionary": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/configuration/services-statements": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {},
+       "application/vnd.furgonetka.v2+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/configuration/statements": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "403": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/file-command": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/json": {}
+      }
+     }
+    }
+   }
+  },
+  "/file-command/{uuid}": {
+   "post": {
+    "requestBody": {
+     "content": {
+      "multipart/form-data": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {},
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {},
+       "application/vnd.furgonetka.v2+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/PackageParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {},
+       "application/vnd.furgonetka.v2+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/PackagesMassDeleteParams"
+    },
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/add-to-tracking": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/AddPackageToTrackingPostParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/calculate-price": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/CalculatePricePostParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {},
+       "application/vnd.furgonetka.v2+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/package-templates/{template_id}": {
+   "delete": {
+    "deprecated": true,
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/account/mass-packages-templates": {
+   "delete": {
+    "deprecated": true,
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/{package_id}": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/PackageParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {},
+       "application/vnd.furgonetka.v2+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "account/package-templates/{template_id}": {
+   "put": {
+    "deprecated": true,
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/AddPackageTemplateParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v2+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/edit-tracked-package/{package_id}": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/EditTrackedPackagePutParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/duty/hs-codes-autocomplete-command/{uuid}": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/mark-as-cancelled": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/MarkPackageAsCancelledPutParams"
+    },
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/{id}": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {},
+       "application/vnd.furgonetka.v2+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/{package_id}/label": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/pdf": {},
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "410": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "500": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/file/import": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "403": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "403": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/protocol": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/PackagesProtocolPostParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/pdf": {}
+      }
+     },
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/send-email": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/pickup-date-proposals": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/points/map": {
+   "post": {
+    "requestBody": {
+     "$ref": "#/components/requestBodies/PointsMapPostParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/print-documents-using-application/{uuid}": {
+   "put": {
+    "requestBody": {
+     "$ref": "#/components/requestBodies/PrintDocumentsUsingApplicationCommandPut"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/readdressing/calculate-price": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/regulations": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/return/calculate-price": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/return/{uuid}": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/send-to-me-link": {
+   "post": {
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/tracking/simulate": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "204": {},
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/{package_id}/tracking": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {},
+       "application/vnd.furgonetka.v2+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "404": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/packages/validate": {
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/PackageParams"
+    },
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/parcel-locker-application": {
+   "post": {
+    "requestBody": {
+     "$ref": "#/components/requestBodies/ParcelLockerApplicationParams"
+    },
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/payments/create": {
+   "put": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/vnd.furgonetka.v1+json": {}
+     }
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {},
+       "application/vnd.furgonetka.v2+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/payments/channels": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/payments/{payment_id}/status": {
+   "get": {
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/regulations": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {},
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   },
+   "post": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {
+     "$ref": "#/components/requestBodies/RegulationsPostParams"
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/regulations/payments": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     },
+     "400": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/zwrot-zakupow/{shopDomain}": {
+   "get": {
+    "responses": {
+     "302": {}
+    }
+   }
+  },
+  "/account/printers": {
+   "get": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {},
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/json": {}
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "bearer-token-for-user": []
+     }
+    ],
+    "requestBody": {},
+    "responses": {
+     "204": {
+      "content": {
+       "text/plain; charset=utf-8": {}
+      }
+     },
+     "401": {
+      "content": {
+       "application/vnd.furgonetka.v1+json": {}
+      }
+     }
+    }
+   }
+  },
+  "/finances/transfers": {
+   "$ref": "https://api.furgonetka.pl/finances/api-documentation.yaml#/paths/~1finances~1transfers"
+  },
+  "/finances/transfers/csv/{uuid}": {
+   "$ref": "https://api.furgonetka.pl/finances/api-documentation.yaml#/paths/~1finances~1transfers~1csv~1{uuid}"
+  },
+  "/pudo/franchise/{partner}/{companyId}/point/{uuid}": {
+   "$ref": "https://api.furgonetka.pl/pudo/documentation.yaml#/paths/~1pudo~1franchise~1{partner}~1{companyId}~1point~1{uuid}"
+  },
+  "/pudo/franchise/{partner}/{companyId}/openingHours": {
+   "$ref": "https://api.furgonetka.pl/pudo/documentation.yaml#/paths/~1pudo~1franchise~1{partner}~1{companyId}~1openingHours"
+  },
+  "/pudo/franchise/{partner}/{companyId}/services": {
+   "$ref": "https://api.furgonetka.pl/pudo/documentation.yaml#/paths/~1pudo~1franchise~1{partner}~1{companyId}~1services"
+  },
+  "/pudo/franchise/{partner}/{companyId}/address-data/verification": {
+   "$ref": "https://api.furgonetka.pl/pudo/documentation.yaml#/paths/~1pudo~1franchise~1{partner}~1{companyId}~1address-data~1verification"
+  },
+  "/pudo/franchise/{partner}/{companyId}/add-contracts": {
+   "$ref": "https://api.furgonetka.pl/pudo/documentation.yaml#/paths/~1pudo~1franchise~1{partner}~1{companyId}~1add-contracts"
+  },
+  "/pudo/inventory/point/contracts": {
+   "$ref": "https://api.furgonetka.pl/pudo/documentation.yaml#/paths/~1pudo~1inventory~1point~1contracts"
+  },
+  "/pudo/account": {
+   "$ref": "https://api.furgonetka.pl/pudo/documentation.yaml#/paths/~1pudo~1account"
+  }
+ },
+ "components": {
+  "requestBodies": {
+   "AddPackageTemplateParams": {
+    "content": {
+     "application/vnd.furgonetka.v2+json": {}
+    }
+   },
+   "AddPackageToTrackingCommandPutParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "AddPackageToTrackingPostParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "AddressBookItemDeleteParams": {
+    "content": {
+     "application/json": {}
+    }
+   },
+   "AddressBookItemsDeleteParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "BoxPrintDocumentsCommandPutParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "CalculatePricePostParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {},
+     "application/vnd.furgonetka.v2+json": {}
+    }
+   },
+   "CancelCommandPutParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "CreatePaymentPutParams": {
+    "content": {
+     "multipart/form-data": {}
+    }
+   },
+   "CsvCommandPutParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "DocumentsCommandPutParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "EditTrackedPackagePutParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "Label": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "LabelFileFormat": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "LabelPageFormat": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "LabelPageFormatWithCuttingLine": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "ListPackagesGetFilters": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "MachineCommandAvailable": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "MarkPackageAsCancelledPutParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "OrderCommandPutParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "PackagesMassDeleteParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "PackagesProtocolPostParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "ParcelLockerApplicationParams": {
+    "content": {
+     "multipart/form-data": {}
+    }
+   },
+   "ParcelLockerData": {
+    "content": {
+     "application/json": {}
+    }
+   },
+   "ParcelLockerUserAgreements": {
+    "content": {
+     "application/json": {}
+    }
+   },
+   "PointClientRejectPackageCommandPutParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "PointCollectionCommandPutParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "PointCommandAvailable": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "PointDispatchCommandPutParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "PointInventoryGetFilters": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "PointInventoryGetParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "PointResendDispatchAccessCodeCommandPutParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "PointsMapPostParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "PrepareStoragePackageCommandPutParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "PrintDocumentsUsingApplicationCommandPut": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "PrintingConfigurationParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "ReaddressingCalculatePricePostParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "ReaddressingCommandPutParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "RegulationsPostParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "ReturnPackageCalculatePricePostParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "ReturnPackageCommandPutParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "RevalidateCommandPutParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "SwitchCompanyParams": {
+    "content": {
+     "application/json": {}
+    }
+   },
+   "UserData": {
+    "content": {
+     "application/json": {}
+    }
+   },
+   "PackageParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {},
+     "application/vnd.furgonetka.v2+json": {}
+    }
+   },
+   "PackageId": {
+    "content": {
+     "application/json": {}
+    }
+   },
+   "PackageIdBase": {
+    "content": {
+     "application/json": {}
+    }
+   },
+   "ServicesParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   },
+   "AddressBookParams": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   }
+  },
+  "responses": {
+   "badRequestDefault": {
+    "content": {
+     "application/vnd.furgonetka.v1+json": {}
+    }
+   }
+  },
+  "securitySchemes": {
+   "bearer-token-for-user": {
+    "type": "oauth2"
+   },
+   "X-Company-Id": {
+    "type": "apiKey"
+   },
+   "application-token": {
+    "type": "apiKey"
+   },
+   "bearer-token-for-application": {
+    "type": "oauth2"
+   },
+   "bearer-token-for-returns-summary": {
+    "type": "apiKey"
+   }
+  }
+ }
+}

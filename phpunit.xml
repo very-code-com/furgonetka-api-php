@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd" bootstrap="vendor/autoload.php" colors="true" failOnWarning="true" displayDetailsOnTestsThatTriggerWarnings="true">
+  <testsuites>
+    <testsuite name="unit">
+      <directory>tests/Unit</directory>
+    </testsuite>
+    <testsuite name="integration">
+      <directory>tests/Integration</directory>
+    </testsuite>
+  </testsuites>
+  <php>
+    <!-- A production php.ini drops arguments from stack traces, which would make every "secret must not appear in a trace" test pass for the wrong reason -->
+    <ini name="zend.exception_ignore_args" value="0"/>
+    <!-- Set FURGONETKA_SANDBOX=1 and FURGONETKA_CLIENT_ID/FURGONETKA_CLIENT_SECRET/FURGONETKA_USERNAME/FURGONETKA_PASSWORD to run integration tests -->
+    <env name="FURGONETKA_SANDBOX" value=""/>
+    <env name="FURGONETKA_CLIENT_ID" value=""/>
+    <env name="FURGONETKA_CLIENT_SECRET" value=""/>
+    <env name="FURGONETKA_USERNAME" value=""/>
+    <env name="FURGONETKA_PASSWORD" value=""/>
+    <!-- Carrier the integration suite books with (default: dpd) -->
+    <env name="FURGONETKA_SERVICE" value=""/>
+    <!-- Set to 0 to keep the integration run read-only (no sandbox shipments ordered) -->
+    <env name="FURGONETKA_ALLOW_ORDERS" value=""/>
+  </php>
+  <source>
+    <include>
+      <directory>src</directory>
+    </include>
+  </source>
+</phpunit>

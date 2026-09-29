@@ -1,0 +1,1 @@
+{"status":"partial_success","datetime_change":"2026-09-29T10:51:44+02:00","errors":[{"path":"/package_no","message":"Przesyłka o podanym numerze została już dodana do trackingu.","details":"","code":"package_already_exists_in_tracking"}],"uuid":"18ef4023-bc8f-48f9-9421-baa7e9d08bf7","package_id":21353630,"service":"dpd"}

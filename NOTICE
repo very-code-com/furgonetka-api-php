@@ -1,0 +1,16 @@
+furgonetka-api-php
+PHP client for the Furgonetka.pl REST API
+
+Copyright 2026 Very Code
+Homepage: https://very-code.com
+Repository: https://github.com/very-code-com/furgonetka-api-php
+
+This product provides an open-source PHP client for the Furgonetka.pl REST API,
+covering OAuth2 authorisation, carrier price comparison, shipment creation and
+ordering, labels and shipping documents, courier pickups, cancellation,
+tracking, pickup-point search, returns and readdressing, file uploads, the
+address book, notification settings, webhooks and the account balance, across
+the carriers Furgonetka.pl brokers.
+
+Licensed under the Apache License, Version 2.0.
+You must retain this NOTICE file in any redistribution or derivative work.

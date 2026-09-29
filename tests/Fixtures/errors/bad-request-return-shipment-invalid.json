@@ -1,0 +1,1 @@
+{"errors":[{"path":"/service_id","message":"Please choose an offer","details":"","code":"noService"},{"path":"/pickup/postcode","message":"The field cannot be empty.","details":"","code":"isEmpty"},{"path":"/receiver/phone","message":"Incorrect phone number. Please enter the correct number.","details":"","code":"invalid"}]}

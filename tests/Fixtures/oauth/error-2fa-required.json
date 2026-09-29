@@ -1,0 +1,6 @@
+{
+  "error": "2fa_required",
+  "error_description": "Konto ma włączone logowanie dwuetapowe.",
+  "hint": "0d29d8ab-54da-49b6-b05f-d92b2a15ed0e",
+  "message": "Konto ma włączone logowanie dwuetapowe."
+}

@@ -1,0 +1,16 @@
+{
+  "uuid": "8b881c52-6473-467a-a7c9-d0aa4c4f3bec",
+  "status": "partial_success",
+  "datetime_change": "2026-07-06T11:20:00+02:00",
+  "successfully_ordered_packages": [
+    90014858124
+  ],
+  "errors": [
+    {
+      "path": "/packages/id/90014858123",
+      "message": "Wystąpił błąd podczas komunikacji z API przewoźnika",
+      "details": "Tu pojawi się szczegółowy opis błędu zwrócony przez przewoźnika, np. przyczyna odrzucenia przesyłki.",
+      "code": "carrierValidationError"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Notification>
+  <package_id>12345</package_id>
+  <package_no>003203043026</package_no>
+  <partner_order_id>67890</partner_order_id>
+  <tracking>
+    <state>delivered</state>
+    <description>Przesyłka doręczona</description>
+    <datetime>2019-07-05 09:19:09</datetime>
+    <branch>Elbląg</branch>
+  </tracking>
+  <control>b663ae3c1b5f286e88860b97ef0cc8e7</control>
+</Notification>

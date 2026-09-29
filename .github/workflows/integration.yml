@@ -1,0 +1,154 @@
+name: Integration (Furgonetka sandbox)
+
+# Runs the integration suite against the real Furgonetka sandbox (api.sandbox.furgonetka.pl).
+# Deliberately NOT part of the pull-request gate:
+#   - forks cannot read repository secrets, so the job would be useless there;
+#   - the suite creates, orders and cancels sandbox shipments, so it must not run once per push
+#     per PHP version;
+#   - it logs in with the password grant, and Furgonetka keeps 20 sessions per application and
+#     user (the 21st revokes the oldest), so the number of logins has to stay small.
+#
+# How the number of logins is kept small:
+#   - the token is kept between runs (actions/cache below): a run logs in only when there is no
+#     usable token, and refreshing one does not open a session. Runs are serialised by the
+#     concurrency group, so the token a run restores is always the newest one;
+#   - the one test that opens a password session of its own (`OAuthTest`, group `oauth-grant`) runs
+#     only in the weekly run and when a manual run asks for it;
+#   - a push to master runs the suite only when something it exercises has changed.
+#   Use a dedicated OAuth application (and ideally a dedicated sandbox account) for CI, so that
+#   its sessions do not count against the application you develop with.
+#
+# The credentials live in the "furgonetka-sandbox" environment rather than in repository secrets:
+# only jobs that opt into that environment can read them, and only from the branches its
+# deployment policy allows. Set four values there:
+#   FURGONETKA_CLIENT_ID, FURGONETKA_CLIENT_SECRET   (a SANDBOX application)
+#   FURGONETKA_USERNAME, FURGONETKA_PASSWORD         (a SANDBOX account)
+# Without them the job reports "not configured" and stops; it never fails the build for a
+# missing secret. The token cache holds a sandbox token, which is worth nothing outside the sandbox.
+
+on:
+  push:
+    branches: ["master"]
+    paths:
+      - "src/**"
+      - "tests/Integration/**"
+      - "tests/Support/**"
+      - "examples/**"
+      - "composer.json"
+      - "composer.lock"
+      - "phpunit.xml"
+      - ".github/workflows/integration.yml"
+  schedule:
+    # Monday 04:53 UTC, off the hour to avoid the top-of-hour runner rush.
+    - cron: "53 4 * * 1"
+  workflow_dispatch:
+    inputs:
+      place_orders:
+        description: "Also run the tests that create and order sandbox shipments"
+        type: boolean
+        default: true
+      oauth_grant:
+        description: "Also run the test that opens a password session of its own"
+        type: boolean
+        default: false
+
+# One run at a time: parallel runs share the same Furgonetka account and the same token.
+concurrency:
+  group: furgonetka-sandbox-integration
+  cancel-in-progress: false
+
+jobs:
+  integration:
+    name: Furgonetka sandbox
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: furgonetka-sandbox
+
+    permissions:
+      contents: read
+
+    env:
+      FURGONETKA_SANDBOX: "1"
+      FURGONETKA_CLIENT_ID: ${{ secrets.FURGONETKA_CLIENT_ID }}
+      FURGONETKA_CLIENT_SECRET: ${{ secrets.FURGONETKA_CLIENT_SECRET }}
+      FURGONETKA_USERNAME: ${{ secrets.FURGONETKA_USERNAME }}
+      FURGONETKA_PASSWORD: ${{ secrets.FURGONETKA_PASSWORD }}
+      # The shipment tests order real sandbox shipments (DPD on Furgonetka's contract) and cancel
+      # them again. Never acceptable against production keys.
+      FURGONETKA_ALLOW_ORDERS: ${{ github.event_name == 'workflow_dispatch' && inputs.place_orders == false && '0' || '1' }}
+      INCLUDE_OAUTH_GRANT: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.oauth_grant) }}
+
+    steps:
+      - uses: actions/checkout@v7
+
+      # The runner context is not available in a job-level `env`, so the token file is named here.
+      - name: Name the token file
+        run: echo "FURGONETKA_TOKEN_FILE=${RUNNER_TEMP}/furgonetka/token.json" >> "$GITHUB_ENV"
+
+      - name: Check that sandbox credentials are configured
+        id: creds
+        run: |
+          if [ -z "${FURGONETKA_CLIENT_ID}" ] || [ -z "${FURGONETKA_CLIENT_SECRET}" ] || [ -z "${FURGONETKA_USERNAME}" ] || [ -z "${FURGONETKA_PASSWORD}" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Integration tests skipped::the FURGONETKA_* credentials are not configured in the furgonetka-sandbox environment."
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up PHP
+        if: steps.creds.outputs.configured == 'true'
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          extensions: curl, json, libxml, mbstring, simplexml, zlib
+          coverage: none
+
+      - name: Get Composer cache directory
+        if: steps.creds.outputs.configured == 'true'
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache Composer downloads
+        if: steps.creds.outputs.configured == 'true'
+        uses: actions/cache@v6
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.json') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install dependencies
+        if: steps.creds.outputs.configured == 'true'
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      # The newest token any earlier run saved. The key is unique per run and the restore key
+      # matches the newest, so every run starts from the token the previous one ended with (a
+      # refresh token is single-use: an older copy would be dead). GitHub evicts a cache that
+      # was not used for seven days; then there is no token, the suite logs in again (one
+      # session) and saves the new one.
+      - name: Restore the sandbox token
+        if: steps.creds.outputs.configured == 'true'
+        uses: actions/cache/restore@v6
+        with:
+          path: ${{ runner.temp }}/furgonetka
+          key: furgonetka-token-${{ github.run_id }}
+          restore-keys: furgonetka-token-
+
+      # No retries: a failing run is a failing run. If the sandbox turns out to be unstable, add
+      # them then, and not before.
+      - name: Run integration tests
+        if: steps.creds.outputs.configured == 'true'
+        run: |
+          if [ "${INCLUDE_OAUTH_GRANT}" = "true" ]; then
+            vendor/bin/phpunit --testsuite integration --testdox
+          else
+            vendor/bin/phpunit --testsuite integration --exclude-group oauth-grant --testdox
+          fi
+
+      # Also after a failed run: the token may have been refreshed before the failure, and the
+      # copy in the cache would then be dead.
+      - name: Save the sandbox token
+        if: always() && steps.creds.outputs.configured == 'true'
+        uses: actions/cache/save@v6
+        with:
+          path: ${{ runner.temp }}/furgonetka
+          key: furgonetka-token-${{ github.run_id }}

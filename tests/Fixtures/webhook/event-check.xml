@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Notification>
+  <package_id>123456</package_id>
+  <package_no>003203043026</package_no>
+  <partner_order_id/>
+  <tracking>
+    <state>collected</state>
+    <description>Doręczona</description>
+    <datetime>2026-09-29 11:15:52</datetime>
+    <branch>Warszawa</branch>
+  </tracking>
+  <control>46007c99bffdae3ce58fa5a776729543</control>
+</Notification>
